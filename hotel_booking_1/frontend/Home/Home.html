@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeeMinHon - Đặt phòng khách sạn</title>
+
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="../Theme.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container nav">
+
+            <div class="logo" aria-label="Logo LeeMinHon">
+                <span class="logo-l">l</span>
+                <span class="logo-e">e</span>
+                <span class="logo-e2">e</span>
+                <span class="logo-m">m</span>
+                <span class="logo-i">i</span>
+                <span class="logo-n">n</span>
+                <span class="logo-h">h</span>
+                <span class="logo-o">o</span>
+                <span class="logo-n2">n</span>
+            </div>
+
+            <nav class="nav-links" aria-label="Điều hướng chính">
+                <a href="#">Khách sạn</a>
+                <a href="../Shop/Shop.html">Sản phẩm</a>
+                <a href="../Booking/History.html">Đặt phòng của tôi</a>
+                <a href="../Cart/Cart.html">Giỏ hàng</a>
+                <a href="#">Chuyến bay</a>
+                <a href="#">Thuê xe</a>
+                <a href="#">Combo du lịch</a>
+                <a href="#">Điểm tham quan</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn-outline" type="button">Đăng ký chỗ nghỉ</button>
+                <div id="authArea"><a href="../Sign_in/Signin.html" class="btn-primary">Đăng nhập</a></div>
+            </div>
+
+
+            <button class="menu-btn" type="button" aria-label="Mở menu">☰</button>
+        </div>
+    </header>
+
+
+    <main>
+
+
+        <section class="hero">
+            <div class="container hero-content">
+
+                <div class="eyebrow">
+                    HÀNH TRÌNH TIẾP THEO BẮT ĐẦU TỪ ĐÂY
+                </div>
+
+                <h1>
+                    Tìm khách sạn lý tưởng cho chuyến đi tiếp theo
+                </h1>
+
+                <p class="hero-text">
+                    Khám phá khách sạn được tuyển chọn, khu nghỉ dưỡng ven biển và điểm lưu trú giữa lòng thành phố
+                    với trải nghiệm đặt phòng thuận tiện, giá linh hoạt và những khoảnh khắc đáng nhớ.
+                </p>
+
+
+
+                <div class="search-card">
+
+                    <div class="tabs" aria-label="Danh mục tìm kiếm">
+                        <button type="button" class="tab active">Khách sạn</button>
+                        <button type="button" class="tab">Chuyến bay</button>
+                        <button type="button" class="tab">Thuê xe</button>
+                        <button type="button" class="tab">Combo du lịch</button>
+                    </div>
+
+
+                    <div class="search-grid">
+
+                        <div class="field destination">
+                            <label>Điểm đến</label>
+
+                            <div class="field-input">
+                                <span>📍</span>
+
+                                <input type="text"
+                                       value=""
+                                       aria-label="Điểm đến">
+                            </div>
+                        </div>
+
+
+                        <div class="field">
+                            <label for="checkin">Ngày nhận phòng</label>
+
+                            <div class="field-input">
+                                <span>📅</span>
+
+                                <input type="date" id="checkin" name="checkin" required>
+                            </div>
+                        </div>
+
+
+                        <div class="field">
+                            <label for="checkout">Ngày trả phòng</label>
+
+                            <div class="field-input">
+                                <span>📅</span>
+
+                                <input type="date" id="checkout" name="checkout" required>
+                            </div>
+                        </div>
+
+
+                        <div class="field">
+                            <label>Số khách</label>
+
+
+                            <div class="guest-picker">
+                                <button type="button" class="guest-trigger" id="guestTrigger"
+                                        aria-expanded="false">
+                                    <svg class="guest-icon" viewBox="0 0 24 24" width="26" height="26" fill="none"
+                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="9" cy="8" r="3.5" />
+                                        <path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6" />
+                                        <circle cx="17" cy="9" r="2.5" />
+                                        <path d="M16.5 14.2c3 .2 5 2.2 5 5.3" />
+                                    </svg>
+                                    <span class="guest-summary">
+                                        <span id="guestSummary">1 người lớn</span>
+                                        <small id="roomSummary">1 phòng</small>
+                                    </span>
+                                    <svg class="guest-arrow" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M6 9l6 6 6-6" />
+                                    </svg>
+                                </button>
+
+                                <div class="guest-panel" id="guestPanel" hidden>
+                                    <div class="guest-row">
+                                        <div class="guest-label">
+                                            <strong>Phòng</strong>
+                                        </div>
+                                        <div class="guest-controls">
+                                            <button type="button" data-count="rooms" data-change="-1"
+                                                    aria-label="Giảm số phòng">
+                                                −
+                                            </button>
+                                            <span id="roomsCount">1</span>
+                                            <button type="button" data-count="rooms" data-change="1"
+                                                    aria-label="Tăng số phòng">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="guest-row">
+                                        <div class="guest-label">
+                                            <strong>Người lớn</strong>
+                                            <small>18 tuổi trở lên</small>
+                                        </div>
+                                        <div class="guest-controls">
+                                            <button type="button" data-count="adults" data-change="-1"
+                                                    aria-label="Giảm số người lớn">
+                                                −
+                                            </button>
+                                            <span id="adultsCount">1</span>
+                                            <button type="button" data-count="adults" data-change="1"
+                                                    aria-label="Tăng số người lớn">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="guest-row">
+                                        <div class="guest-label">
+                                            <strong>Trẻ em</strong>
+                                            <small>0–17 tuổi</small>
+                                        </div>
+                                        <div class="guest-controls">
+                                            <button type="button" data-count="children" data-change="-1"
+                                                    aria-label="Giảm số trẻ em">
+                                                −
+                                            </button>
+                                            <span id="childrenCount">0</span>
+                                            <button type="button" data-count="children" data-change="1"
+                                                    aria-label="Tăng số trẻ em">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                   
+                                </div>
+
+                                <input type="hidden" name="rooms" id="roomsInput" value="1">
+                                <input type="hidden" name="adults" id="adultsInput" value="1">
+                                <input type="hidden" name="children" id="childrenInput" value="0">
+                            </div>
+
+                        </div>
+
+
+                        <button type="button" class="search-btn">
+                            Tìm kiếm
+                        </button>
+
+                    </div>
+
+
+                    <div class="quick-options">
+                        <span>Phổ biến:</span>
+                        <span>Khu nghỉ dưỡng biển</span>
+                        <span>Khách sạn thành phố</span>
+                        <span>Du lịch gia đình</span>
+                        <span>Ưu đãi phút chót</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section benefits">
+            <div class="container">
+
+                <h2>Vì sao nên chọn chúng tôi</h2>
+
+                <div class="benefit-grid">
+
+                    <article class="benefit-card">
+                        <div class="icon">💸</div>
+
+                        <h3>Cam kết giá tốt</h3>
+
+                        <p>
+                            Mức giá ưu đãi cho những kỳ nghỉ được tuyển chọn.
+                        </p>
+                    </article>
+
+
+                    <article class="benefit-card">
+                        <div class="icon">✅</div>
+
+                        <h3>Đặt phòng dễ dàng</h3>
+
+                        <p>
+                            Quy trình đặt phòng nhanh chóng, linh hoạt thay đổi với một số lựa chọn.
+                        </p>
+                    </article>
+
+
+                    <article class="benefit-card">
+                        <div class="icon">🛡️</div>
+
+                        <h3>Hỗ trợ tận tâm</h3>
+
+                        <p>
+                            Luôn sẵn sàng hỗ trợ khi bạn cần tư vấn hoặc thay đổi đặt phòng.
+                        </p>
+                    </article>
+
+
+                    <article class="benefit-card">
+                        <div class="icon">🌟</div>
+
+                        <h3>Nơi lưu trú chất lượng</h3>
+
+                        <p>
+                            Khách sạn được chọn lọc dựa trên đánh giá tích cực của du khách.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section deals-section">
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Ưu đãi đặc biệt</h2>
+                        <p>Tiết kiệm hơn với các lựa chọn lưu trú nổi bật</p>
+                    </div>
+
+                    <a href="#">Xem tất cả ưu đãi</a>
+
+                </div>
+
+
+                <div class="deal-grid">
+
+                    <article class="deal-card deal-blue">
+
+                        <div>
+
+                            <span class="badge">
+                                Ưu đãi có thời hạn
+                            </span>
+
+                            <h3>Giảm đến 40%</h3>
+
+                            <p>
+                                Tận hưởng kỳ nghỉ tại những biệt thự nhiệt đới và khu nghỉ dưỡng ven biển tuyệt đẹp.
+                            </p>
+
+                            <button type="button">
+                                Khám phá ngay
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="deal-card deal-pink">
+
+                        <div>
+
+                            <span class="badge">
+                                Ưu đãi cuối tuần
+                            </span>
+
+                            <h3>Combo nghỉ dưỡng thành phố</h3>
+
+                            <p>
+                                Khám phá mức giá hấp dẫn cho kỳ nghỉ ngắn ngày cùng các dịch vụ đi kèm.
+                            </p>
+
+                            <button type="button">
+                                Nhận ưu đãi
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Khách sạn nổi bật</h2>
+                        <p>Những khách sạn được nhiều du khách yêu thích</p>
+                    </div>
+
+
+                </div>
+
+
+                <div class="hotel-carousel">
+                    <button type="button" class="carousel-btn prev" id="hotelPrev" aria-label="Khách sạn trước">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6" /></svg>
+                    </button>
+
+                    <div class="hotel-viewport">
+                        <div class="hotel-grid" id="hotelTrack"></div>
+                    </div>
+
+                    <button type="button" class="carousel-btn next" id="hotelNext" aria-label="Khách sạn tiếp theo">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+                    </button>
+                </div>
+            </div>
+</section>
+
+
+        <!-- DESTINATIONS -->
+        <section class="section destinations">
+
+            <div class="container">
+
+                <h2>Điểm đến phổ biến</h2>
+
+
+                <div class="destination-grid">
+
+                    <article class="destination-card dest-1">
+
+                        <div>
+                            <h3>Bali</h3>
+                            <p>1.408 chỗ nghỉ</p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="destination-card dest-2">
+
+                        <div>
+                            <h3>Paris</h3>
+                            <p>846 chỗ nghỉ</p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="destination-card dest-3">
+
+                        <div>
+                            <h3>Tokyo</h3>
+                            <p>1.219 chỗ nghỉ</p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="destination-card dest-4">
+
+                        <div>
+                            <h3>New York</h3>
+                            <p>1.067 chỗ nghỉ</p>
+                        </div>
+
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter">
+
+            <div class="container newsletter-inner">
+
+                <div>
+
+                    <h2>
+                        Nhận ưu đãi du lịch độc quyền
+                    </h2>
+
+                    <p>
+                        Đăng ký để nhận thông tin khuyến mãi, mã giảm giá và gợi ý điểm đến.
+                    </p>
+
+                </div>
+
+
+                <form>
+
+                    <input type="email"
+                           placeholder="Nhập email của bạn"
+                           aria-label="Địa chỉ email">
+
+                    <button type="submit">
+                        Đăng ký ngay
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+            <div>
+
+                <div class="logo footer-logo"
+                     aria-label="Logo LeeMinHon">
+                    <span class="logo-l">l</span>
+                    <span class="logo-e">e</span>
+                    <span class="logo-e2">e</span>
+                    <span class="logo-m">m</span>
+                    <span class="logo-i">i</span>
+                    <span class="logo-n">n</span>
+                    <span class="logo-h">h</span>
+                    <span class="logo-o">o</span>
+                    <span class="logo-n2">n</span>
+                </div>
+
+                <p>
+                    Lên kế hoạch cho kỳ nghỉ đáng nhớ, khám phá điểm đến mới và an tâm trải nghiệm cùng nền tảng đặt phòng của chúng tôi.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Về chúng tôi</h4>
+
+                <a href="#">Giới thiệu</a>
+                <a href="#">Tuyển dụng</a>
+                <a href="#">Báo chí</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Hỗ trợ</h4>
+
+                <a href="#">Trung tâm trợ giúp</a>
+                <a href="#">Liên hệ</a>
+                <a href="#">Chính sách bảo mật</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Khám phá</h4>
+
+                <a href="#">Khách sạn</a>
+                <a href="#">Chuyến bay</a>
+                <a href="#">Chuyến đi</a>
+
+            </div>
+
+        </div>
+
+
+    </footer>
+
+
+    <!-- TOAST -->
+    <div id="toast"
+         class="toast"
+         role="status"
+         aria-live="polite">
+        Đã thêm vào danh sách yêu thích
+    </div>
+
+
+
+
+    <script src="../hotel-card.js"></script>
+    <script src="Home.js"></script>
+    <script src="../auth.js"></script>
+</body>
+</html>

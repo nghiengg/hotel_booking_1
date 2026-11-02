@@ -1,0 +1,114 @@
+/* Giao diện dùng chung LeeMinHon - tông hồng Agoda */
+:root {
+    --brand: #e83e8c;
+    --brand-dark: #cc2874;
+    --brand-soft: #fff0f7;
+    --ink: #202536;
+    --muted: #687083;
+    --line: #e7e8ee;
+    --surface: #ffffff;
+    --page: #f7f8fc;
+    --shadow: 0 12px 32px rgba(31, 41, 55, .08);
+}
+* { box-sizing: border-box; }
+body {
+    color: var(--ink);
+    background: var(--page);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+button, input, select, textarea { font: inherit; }
+button, a { transition: .2s ease; }
+a { color: var(--brand-dark); }
+button { cursor: pointer; }
+.btn-primary, .btn-outline, .logout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.btn-primary {
+    border: 1px solid var(--brand);
+    color: #fff;
+    background: var(--brand);
+}
+.btn-primary:hover { color: #fff; background: var(--brand-dark); border-color: var(--brand-dark); }
+.btn-outline {
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: #fff;
+}
+.btn-outline:hover { border-color: var(--brand); color: var(--brand-dark); }
+.account-name { color: var(--ink); font-size: 14px; font-weight: 700; }
+#authArea { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+input, select, textarea {
+    border: 1px solid #dfe2e9;
+    border-radius: 9px;
+    background: #fff;
+    color: var(--ink);
+}
+input:focus, select:focus, textarea:focus {
+    outline: 3px solid rgba(232, 62, 140, .13);
+    border-color: var(--brand);
+}
+.shop-head, .history-header, body > header:not(.header) {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 3px 14px rgba(31,41,55,.04);
+}
+.shop-head {
+    min-height: 70px;
+    padding: 12px max(24px, calc((100% - 1180px)/2));
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+}
+.shop-head > a:first-child, .history-header > a {
+    color: var(--brand-dark); font-size: 25px; font-weight: 800; text-decoration: none;
+}
+.shop-head a { text-decoration: none; font-weight: 600; }
+.shop-head button { border: 1px solid var(--line); border-radius: 9px; background: #fff; padding: 10px 14px; }
+.history-header { min-height: 68px; padding: 12px max(24px, calc((100% - 1180px)/2)); display:flex; align-items:center; justify-content:space-between; }
+.results-wrap, .shop, .history {
+    width: min(1180px, calc(100% - 36px));
+    margin: 38px auto 64px;
+}
+.results-wrap h1, .shop h1, .history h1 { color: var(--ink); font-size: clamp(26px, 3vw, 36px); font-weight: 800; }
+.filters, .shop-tools {
+    display:flex; align-items:end; gap:12px; flex-wrap:wrap;
+    padding:18px; margin:22px 0; border:1px solid var(--line);
+    border-radius:16px; background:#fff; box-shadow:var(--shadow);
+}
+.filters label { display:flex; flex-direction:column; gap:7px; color:var(--muted); font-size:13px; font-weight:700; }
+.filters input, .filters select, .shop-tools input, .shop-tools select { min-height:42px; padding:9px 12px; }
+.filters button, .shop-tools button, #checkout, #loadOrders, #showCart {
+    border:0; border-radius:9px; padding:11px 17px; color:#fff; background:var(--brand); font-weight:700;
+}
+.room-results, .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; }
+.room-results > *, .products > *, #cartPanel, #orders > *, .history #list > * {
+    border:1px solid var(--line); border-radius:15px; background:#fff; box-shadow:var(--shadow); padding:18px;
+}
+#cartPanel { margin:24px 0; }
+#cartPanel input { display:block; width:100%; max-width:480px; padding:12px; margin:10px 0; }
+#cartItems { display:grid; gap:8px; }
+#orders { display:grid; gap:12px; margin-top:14px; }
+.signin-container, .signup-container { background:linear-gradient(135deg,#fff1f7,#f7f8fc); }
+.signin-card, .signup-card {
+    border:1px solid rgba(232,62,140,.12) !important;
+    border-radius:20px !important; box-shadow:0 20px 55px rgba(31,41,55,.12) !important;
+}
+.signin-card h1, .signup-card h1 { color:var(--ink); }
+.signin-card button[type=submit], .signup-card button[type=submit] {
+    background:var(--brand) !important; border-color:var(--brand) !important; border-radius:10px !important;
+}
+.signin-card button[type=submit]:hover, .signup-card button[type=submit]:hover { background:var(--brand-dark) !important; }
+@media (max-width: 700px) {
+    .shop-head { padding:12px 18px; }
+    .shop-head > * { max-width:100%; }
+    .history-header { padding:12px 18px; }
+    #authArea { gap:7px; }
+    .account-name { width:100%; }
+    .results-wrap, .shop, .history { width:calc(100% - 28px); margin-top:24px; }
+}

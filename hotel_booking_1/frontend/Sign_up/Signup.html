@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - LeeMinHon</title>
+    <link rel="stylesheet" href="Signup.css">
+    <link rel="stylesheet" href="../Theme.css">
+</head>
+<body>
+    <main class="signup-container">
+        <form id="signupForm" class="signup-card">
+            <a href="../Home/Home.html" class="logo">leeminhon</a>
+
+            <h1>Tạo tài khoản</h1>
+            <p>Tham gia cùng chúng tôi và bắt đầu lên kế hoạch cho chuyến đi tiếp theo.</p>
+
+            <label for="fullname">Họ và tên</label>
+            <input type="text" id="fullname" placeholder="Nhập họ và tên" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Nhập địa chỉ email" required>
+
+
+            <label for="password">Mật khẩu</label>
+            <div class="password-wrapper">
+                <input type="password" id="password"
+                       placeholder="Tạo mật khẩu" minlength="8" required>
+            </div>
+
+            <label for="confirmPassword">Xác nhận mật khẩu</label>
+            <div class="password-wrapper">
+                <input type="password" id="confirmPassword"
+                       placeholder="Nhập lại mật khẩu" minlength="8" required>
+            </div>
+
+
+            <label class="terms">
+                <input type="checkbox" id="agreeTerms" required>
+                Tôi đồng ý với các điều khoản và điều kiện
+            </label>
+
+            <button type="submit">Tạo tài khoản</button>
+
+            <p id="message" role="status"></p>
+
+            <p class="signin-link">
+                Bạn đã có tài khoản?
+                <a href="../Sign_in/Signin.html">Đăng nhập</a>
+            </p>
+
+            <a href="../Home/Home.html" class="back-home">← Quay về trang chủ</a>
+        </form>
+    </main>
+
+    <script src="Signup.js"></script>
+    <script src="../auth.js"></script>
+</body>
+</html>
